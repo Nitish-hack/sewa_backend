@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
+const adminRoutes = require("./routes/admin");
 const app = express();
 const PORT=process.env.PORT||5000;  
 
@@ -23,6 +24,9 @@ mongoose
   });
 
 app.use("/api/user", userRoutes);
+app.use("/api/admin", adminRoutes);
+
+
 const server = app.listen(PORT, () =>
   console.log(`Server started on ${PORT}`)
 );
